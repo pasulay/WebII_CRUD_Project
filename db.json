@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "93cc",
+      "name": "Isatou",
+      "email": "isatou@gmail.com",
+      "role": "Director"
+    },
+    {
+      "id": "a1cb",
+      "name": "Lamin Jallow",
+      "email": "ls@gmail.com",
+      "role": "Admin"
+    }
+  ]
+}
