@@ -11,7 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class EditUserComponent {
   userForm: FormGroup;
-  userId: number;
+  userId: string;
 
   constructor(
     private fb: FormBuilder,
@@ -20,7 +20,7 @@ export class EditUserComponent {
     private router: Router
   ) {
     this.userForm = this.fb.group({
-      id: [null],
+      _id: [null],
       name: [''],
       email: [''],
       role: ['']
@@ -30,7 +30,7 @@ export class EditUserComponent {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
-      const user = users.find((u) => u.id === this.userId);
+      const user = users.find((u) => u._id === this.userId);
       if (user) {
         this.userForm.setValue(user);
       }

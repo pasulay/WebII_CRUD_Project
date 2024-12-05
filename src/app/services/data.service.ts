@@ -11,15 +11,17 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUsers(): User[] {
-    return [
-      { id: 1, name: 'Musa Njie', email: 'mn@gmail.com', role: 'Admin' },
-      { id: 2, name: 'Fatou Ceesay', email: 'fc@utg.edu.gm', role: 'User' },
-      { id: 3, name: 'Kebba Sambo', email: 'ks@gmail.com', role: 'Editor' },
-    ];
+  getAllUsers(): any {
+    // return [
+    //   { id: "1", name: 'Musa Njie', email: 'mn@gmail.com', role: 'Admin' },
+    //   { id: 2, name: 'Fatou Ceesay', email: 'fc@utg.edu.gm', role: 'User' },
+    //   { id: 3, name: 'Kebba Sambo', email: 'ks@gmail.com', role: 'Editor' },
+    // ];
   }
 
-  private apiUrl = 'http://localhost:3000/users';
+  // private apiUrl = 'http://localhost:3000/users';
+
+  private apiUrl = 'http://localhost:4000/api/users';
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
@@ -30,10 +32,10 @@ export class DataService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${user.id}`, user);
+    return this.http.put<User>(`${this.apiUrl}/${user._id}`, user);
   }
 
-  deleteUser(id: number): Observable<void> {
+  deleteUser(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

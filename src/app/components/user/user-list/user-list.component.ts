@@ -19,10 +19,10 @@ export class UserListComponent {
     });
   }
 
-  deleteUser(id: number): void {
+  deleteUser(id: string): void {
     if (confirm('Are you sure you want to delete this user?')) {
       this.dataService.deleteUser(id).subscribe(() => {
-        this.all_users = this.all_users.filter((user) => user.id !== id);
+        this.all_users = this.all_users.filter((user) => user._id !== id);
         alert('User deleted successfully!');
       });
     }
